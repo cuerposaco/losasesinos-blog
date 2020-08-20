@@ -1,9 +1,7 @@
 [build]
-  publish = "public"
-  command = "npm run build"
-  
-[build.environment]
-  NODE_VERSION = "10"
+  command = "NODE_ENV=production gatsby build"
+  publish = "public/"
 
-[[plugins]]
-  package = "netlify-plugin-gatsby-cache"
+[template]
+  incoming-hooks = ["Ghost"]
+
