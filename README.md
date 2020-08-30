@@ -1,1 +1,2 @@
-# Los asesinos del comic Blog
+# Los asesinos del comic
+## Static site
