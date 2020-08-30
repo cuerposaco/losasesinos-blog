@@ -1,12 +1,12 @@
 {
   "development": {
     "apiUrl": "http://losasesinosdelcomic.ivanmejias.me",
-    "contentApiKey": "487457b4fcecc701c4639ad226",
+    "contentApiKey": "c1e0f9c3a528ec21638b12f647",
     "version": "v2"
   },
   "production": {
     "apiUrl": "http://losasesinosdelcomic.ivanmejias.me",
-    "contentApiKey": "487457b4fcecc701c4639ad226",
+    "contentApiKey": "c1e0f9c3a528ec21638b12f647",
     "version": "v2"
   }
 }
