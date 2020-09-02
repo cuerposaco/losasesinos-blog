@@ -22,10 +22,13 @@ const Index = ({ data, location, pageContext }) => {
       <Layout isHome={true}>
         <div className="container">
           <section className="post-feed">
-            {posts.filter(({ node }) => !node.title.includes('Data schema')).map(({ node }) => (
-              // The tag below includes the markup for each post - components/common/PostCard.js
-              <PostCard key={node.id} post={node} />
-            ))}
+            {posts
+              .filter(({ node }) => !node.title.includes('Data schema'))
+              .filter(({ node }) => node.primary_tag && node.primary_tag.slug === 'en-portada')
+              .map(({ node }) => (
+                // The tag below includes the markup for each post - components/common/PostCard.js
+                <PostCard key={node.id} post={node} />
+              ))}
           </section>
           <Pagination pageContext={pageContext} />
         </div>
