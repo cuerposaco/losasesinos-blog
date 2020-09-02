@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
+import { Grid } from '@material-ui/core';
+
 import { Layout, PostCard, Pagination } from '../components/common'
 import { MetaData } from '../components/common/meta'
 
@@ -14,34 +16,42 @@ import { MetaData } from '../components/common/meta'
 *
 */
 const Index = ({ data, location, pageContext }) => {
-    const posts = data.allGhostPost.edges
+  const posts = data.allGhostPost.edges
 
-    return (
-        <>
-            <MetaData location={location} />
-            <Layout isHome={true}>
-                <div className="container">
-                    <section className="post-feed">
-                        {posts.map(({ node }) => (
-                            // The tag below includes the markup for each post - components/common/PostCard.js
-                            <PostCard key={node.id} post={node} />
-                        ))}
-                    </section>
-                    <Pagination pageContext={pageContext} />
-                </div>
-            </Layout>
-        </>
-    )
+  return (
+    <>
+      <MetaData location={location} />
+      <Layout isHome={true}>
+        <section className="post-feed">
+          <Grid
+            container
+            spacing={1}
+            direction="row"
+            justify="center"
+            alignItems="flex-start"
+          >
+            {posts.filter(({ node }) => !node.title.includes('Data schema')).map(({ node }) => (
+              // The tag below includes the markup for each post - components/common/PostCard.js
+              <Grid item key={node.id} xs={12}>
+                <PostCard post={node} />
+              </Grid>
+            ))}
+          </Grid>
+        </section>
+        <Pagination pageContext={pageContext} />
+      </Layout>
+    </>
+  )
 }
 
 Index.propTypes = {
-    data: PropTypes.shape({
-        allGhostPost: PropTypes.object.isRequired,
-    }).isRequired,
-    location: PropTypes.shape({
-        pathname: PropTypes.string.isRequired,
-    }).isRequired,
-    pageContext: PropTypes.object,
+  data: PropTypes.shape({
+    allGhostPost: PropTypes.object.isRequired,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+  pageContext: PropTypes.object,
 }
 
 export default Index
