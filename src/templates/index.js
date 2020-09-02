@@ -14,34 +14,34 @@ import { MetaData } from '../components/common/meta'
 *
 */
 const Index = ({ data, location, pageContext }) => {
-    const posts = data.allGhostPost.edges
+  const posts = data.allGhostPost.edges
 
-    return (
-        <>
-            <MetaData location={location} />
-            <Layout isHome={true}>
-                <div className="container">
-                    <section className="post-feed">
-                        {posts.map(({ node }) => (
-                            // The tag below includes the markup for each post - components/common/PostCard.js
-                            <PostCard key={node.id} post={node} />
-                        ))}
-                    </section>
-                    <Pagination pageContext={pageContext} />
-                </div>
-            </Layout>
-        </>
-    )
+  return (
+    <>
+      <MetaData location={location} />
+      <Layout isHome={true}>
+        <div className="container">
+          <section className="post-feed">
+            {posts.filter(({ node }) => !node.title.includes('Data schema')).map(({ node }) => (
+              // The tag below includes the markup for each post - components/common/PostCard.js
+              <PostCard key={node.id} post={node} />
+            ))}
+          </section>
+          <Pagination pageContext={pageContext} />
+        </div>
+      </Layout>
+    </>
+  )
 }
 
 Index.propTypes = {
-    data: PropTypes.shape({
-        allGhostPost: PropTypes.object.isRequired,
-    }).isRequired,
-    location: PropTypes.shape({
-        pathname: PropTypes.string.isRequired,
-    }).isRequired,
-    pageContext: PropTypes.object,
+  data: PropTypes.shape({
+    allGhostPost: PropTypes.object.isRequired,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+  pageContext: PropTypes.object,
 }
 
 export default Index
