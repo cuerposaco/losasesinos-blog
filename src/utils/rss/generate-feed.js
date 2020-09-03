@@ -71,6 +71,7 @@ const generateRSSFeed = function generateRSSFeed(siteConfig) {
     query: `
         {
             allGhostPost(
+                filter: {authors: {elemMatch: {slug: {ne: "data-schema"}}}},
                 sort: {order: DESC, fields: published_at}
             ) {
                 edges {

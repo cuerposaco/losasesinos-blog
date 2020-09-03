@@ -53,9 +53,9 @@ export const ghostPostFields = graphql`
         visibility
 
         # Dates formatted
-        created_at_pretty: created_at(fromNow: true)
-        published_at_pretty: published_at(fromNow: true)
-        updated_at_pretty: updated_at(fromNow: true)
+        created_at_pretty: created_at(fromNow: true, locale: "es")
+        published_at_pretty: published_at(fromNow: true, locale: "es")
+        updated_at_pretty: updated_at(fromNow: true, locale: "es")
 
         # Dates unformatted
         created_at

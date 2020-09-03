@@ -22,12 +22,10 @@ const Index = ({ data, location, pageContext }) => {
       <Layout isHome={true}>
         <div className="container">
           <section className="post-feed">
-            {posts
-              .filter(({ node }) => !node.title.includes('Data schema'))
-              .map(({ node }) => (
-                // The tag below includes the markup for each post - components/common/PostCard.js
-                <PostCard key={node.id} post={node} />
-              ))}
+            {posts.map(({ node }) => (
+              // The tag below includes the markup for each post - components/common/PostCard.js
+              <PostCard key={node.id} post={node} />
+            ))}
           </section>
           <Pagination pageContext={pageContext} />
         </div>
@@ -53,7 +51,10 @@ export default Index
 export const pageQuery = graphql`
   query GhostPostQuery($limit: Int!, $skip: Int!) {
     allGhostPost(
-        filter: {primary_tag: {slug: {eq: "en-portada"}}},
+        filter: {
+          authors: {elemMatch: {slug: {ne: "data-schema"}}},
+          primary_tag: {slug: {eq: "en-portada"}}
+        },
         sort: { order: DESC, fields: [published_at] },
         limit: $limit,
         skip: $skip
