@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Neucha&family=Permanent+Marker&display=swap');
 @import './base.css';
 
-.site-banner-title {
+.site-banner .site-banner-title {
   margin: 0;
   font-size: 6rem;
   line-height: 0.9em;
@@ -19,12 +19,12 @@
   display: block;
 }
 
-.site-banner-desc {
+.site-banner .site-banner-desc {
   font-family: 'Permanent Marker', serif;
   font-weight: 400;
   display: block;
   opacity: 1;
-  font-size: 5em
+  font-size: 2em
 }
 
 /* POST CARDS */

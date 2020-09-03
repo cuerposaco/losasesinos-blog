@@ -24,7 +24,6 @@ const Index = ({ data, location, pageContext }) => {
           <section className="post-feed">
             {posts
               .filter(({ node }) => !node.title.includes('Data schema'))
-              .filter(({ node }) => node.primary_tag && node.primary_tag.slug === 'en-portada')
               .map(({ node }) => (
                 // The tag below includes the markup for each post - components/common/PostCard.js
                 <PostCard key={node.id} post={node} />
@@ -54,6 +53,7 @@ export default Index
 export const pageQuery = graphql`
   query GhostPostQuery($limit: Int!, $skip: Int!) {
     allGhostPost(
+        filter: {primary_tag: {slug: {eq: "en-portada"}}},
         sort: { order: DESC, fields: [published_at] },
         limit: $limit,
         skip: $skip
