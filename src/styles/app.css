@@ -4,27 +4,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Neucha&family=Permanent+Marker&display=swap');
 @import './base.css';
 
-.site-banner .site-banner-title {
+.site-head .site-mast {
+    display: none;
+}
+.site-head .site-nav {
+  position: fixed;
+  background: black;
+  width: 100%;
+  top: 0;
+  left: 0;
   margin: 0;
-  font-size: 6rem;
-  line-height: 0.9em;
-  background: white;
-  color: black;
-  border-radius: 0.5em;
-  padding: 0.7em 0;
-  text-shadow: 0px 3px 0px #f2f2f2;
-  text-transform: capitalize;
-  font-family: 'Roboto Slab', serif;
-  font-weight: 500;
-  display: block;
+  z-index: 1;
+  display: none;
+}
+.site-head .site-banner {
+    max-width: 60%;
+    margin: 0 auto;
+    padding: 0vw 0;
+    text-align: center;
+    background-image: url(https://raw.githubusercontent.com/cuerposaco/losasesinosdelcomic-assets/master/logo_horizontal.png);
+    height: 50vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.site-banner .site-banner-desc {
+.site-head .site-banner .site-banner-title {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 0em;
+  opacity: 0;
+}
+
+.site-head .site-banner .site-banner-desc {
   font-family: 'Permanent Marker', serif;
   font-weight: 400;
   display: block;
   opacity: 1;
   font-size: 2em
+}
+
+.site-foot-nav-right {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .site-head .site-banner {
+    height: 50vh;
+    max-width: 75%;
+  }
 }
 
 /* POST CARDS */
