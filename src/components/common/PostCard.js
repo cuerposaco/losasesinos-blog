@@ -27,19 +27,7 @@ const PostCard = ({ post }) => {
         {post.excerpt}
       </section>
       <footer className="post-card-footer">
-        {post.tags && <div className="post-card-tags"><Tags post={post} visibility="public" autolink={true} permalink="/tag/:slug" /></div>}
-        {/* <div className="post-card-footer-left">
-          <div className="post-card-avatar">
-            {post.primary_author.profile_image ?
-              <img className="author-profile-image" src={post.primary_author.profile_image} alt={post.primary_author.name} /> :
-              <img className="default-avatar" src="/images/icons/avatar.svg" alt={post.primary_author.name} />
-            }
-          </div>
-          <span>{post.primary_author.name}</span>
-        </div>
-        <div className="post-card-footer-right">
-          <div>{post.published_at_pretty && <span>{post.published_at_pretty}</span>} <span>({readingTime})</span></div>
-        </div> */}
+        {/* {post.tags && <div className="post-card-tags"><Tags post={post} visibility="public" autolink={false} /></div>} */}
       </footer>
     </Link>
   )

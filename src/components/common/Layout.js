@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { Link, StaticQuery, graphql } from 'gatsby'
@@ -22,6 +22,22 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
   const site = data.allGhostSettings.edges[0].node
   const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
   const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
+  const instagramUrl = 'https://www.instagram.com/losasesinosdelcomic/'
+
+  const [hideOnScroll, setHideOnScroll] = useState(true)
+  const navigationRef = useRef();
+  const handleScroll = () => {
+    // const position = { x: window.scrollX, y: window.scrollY };
+    const target = navigationRef.current;
+    const { x, height, top } = target.getClientRects().item(0)
+
+    const isFixed = (x + height) + top < 0;
+    setHideOnScroll(isFixed)
+  }
+  useLayoutEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <>
@@ -38,33 +54,28 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
           <header className="site-head" style={{ ...site.cover_image && { backgroundImage: `url(${site.cover_image})` } }}>
             <div className="container">
               <div className="site-mast">
-                <div className="site-mast-left">
-                  <Link to="/">
-                    {site.logo ?
-                      <img className="site-logo" src={site.logo} alt={site.title} />
-                      : <Img fixed={data.file.childImageSharp.fixed} alt={site.title} />
-                    }
-                  </Link>
-                </div>
+                <div className="site-mast-left"></div>
                 <div className="site-mast-right">
                   {site.twitter && <a href={twitterUrl} className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/twitter.svg" alt="Twitter" /></a>}
                   {site.facebook && <a href={facebookUrl} className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/facebook.svg" alt="Facebook" /></a>}
+                  <a href={instagramUrl} className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/instagram.svg" alt="Instagram" /></a>
                   <a className="site-nav-item" href={`https://feedly.com/i/subscription/feed/${config.siteUrl}/rss/`} target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/rss.svg" alt="RSS Feed" /></a>
                 </div>
               </div>
-              {isHome ?
-                <div className="site-banner">
+              <Link to="/">
+                <div className="site-banner" ref={navigationRef}>
                   <h1 className="site-banner-title">{site.title}</h1>
                   <p className="site-banner-desc">{site.description}</p>
-                </div> :
-                null}
-              <nav className="site-nav">
+                </div>
+              </Link>
+              <nav className={`site-nav${(hideOnScroll && ' scroll-out') || ''}`}>
                 <div className="site-nav-left">
-                  {/* The navigation items as setup in Ghost */}
                   <Navigation data={site.navigation} navClass="site-nav-item" />
                 </div>
                 <div className="site-nav-right">
-                  <Link className="site-nav-button" to="/about">About</Link>
+                  {/* <Link className="site-nav-button" to="/about">About</Link> */}
+                  <a href={instagramUrl} className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/instagram.svg" alt="Instagram" /></a>
+                  <a className="site-nav-item" href={`https://feedly.com/i/subscription/feed/${config.siteUrl}/rss/`} target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/rss.svg" alt="RSS Feed" /></a>
                 </div>
               </nav>
             </div>
@@ -82,7 +93,12 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
           <footer className="site-foot">
             <div className="site-foot-nav container">
               <div className="site-foot-nav-left">
-                <Link to="/">{site.title}</Link> © {(new Date(Date.now())).getFullYear()} &mdash; Published with <a className="site-foot-nav-item" href="https://ghost.org" target="_blank" rel="noopener noreferrer">Ghost</a>
+                <div>
+                  <Link to="/">{site.title}</Link> © {(new Date(Date.now())).getFullYear()}
+                </div>
+                <div>
+                  <a href={instagramUrl} className="site-nav-item" target="_blank" rel="noopener noreferrer"><img className="site-nav-icon" src="/images/icons/instagram.svg" alt="Instagram" /></a>
+                </div>
               </div>
               <div className="site-foot-nav-right">
                 <Navigation data={site.navigation} navClass="site-foot-nav-item" />

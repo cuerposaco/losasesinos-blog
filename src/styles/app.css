@@ -4,29 +4,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Neucha&family=Permanent+Marker&display=swap');
 @import './base.css';
 
+.site-nav .site-title {
+    font-size: 2em;
+    font-family: "Roboto Slab";
+    padding: 0.3em;
+}
+
+.site-nav .site-title a {
+    color: inherit;
+}
+
+.site-nav .site-nav-left {
+    margin: 0;
+}
+
 .site-head .site-mast {
     display: none;
 }
 .site-head .site-nav {
   position: fixed;
-  background: black;
   width: 100%;
   top: 0;
   left: 0;
   margin: 0;
   z-index: 1;
-  display: none;
 }
+nav.site-nav {
+    transition: all 700ms;
+    background-color: white;
+    color: black;
+}
+nav.site-nav.scroll-out {
+    background-color: black;
+    color: white;
+}
+
+nav.site-nav .site-nav-item {
+  color: inherit;
+}
+
 .site-head .site-banner {
-    max-width: 60%;
+    max-width: 50%;
     margin: 0 auto;
     padding: 0vw 0;
     text-align: center;
     background-image: url(https://raw.githubusercontent.com/cuerposaco/losasesinosdelcomic-assets/master/logo_horizontal.png);
-    height: 50vw;
+    height: 30vw;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    margin-top: 5em;
 }
 
 .site-head .site-banner .site-banner-title {
@@ -56,6 +83,10 @@
 }
 
 /* POST CARDS */
+
+.site-main .post-feed {
+  grid-template-columns: 1fr 1fr;
+}
 
 @media (max-width: 680px) {
   .post-feed {
@@ -101,11 +132,10 @@
 }
 
 .post-card .post-card-image {
-    padding-top: 77%;
+    padding-top: 0%;
     position: relative;
-    border-radius: 100%;
-    /* border: 4px solid black; */
-    width: 80%;
+    border-radius: 17em 0%;
+    width: 100%;
     margin: 0 auto;
 }
 .post-card .post-card-image:before {
@@ -115,7 +145,8 @@
     top: 0;
     left: 0;
     position: absolute;
-    box-shadow: inset 0px 0px 1em rgba(0,0,0,0.3), inset 0px 0px 1.3em rgba(0,0,0,0.3), inset 0px 0px 1.5em rgba(0,0,0,0.3), inset 0px 0px 1.7em rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 0em 0.5em rgba(0,0,0,1), inset 0 1em 1em rgba(0,0,0,.7);
+    /* box-shadow: inset 0px 0px 1em rgba(0,0,0,0.3), inset 0px 0px 1.3em rgba(0,0,0,0.3), inset 0px 0px 1.5em rgba(0,0,0,0.3), inset 0px 0px 1.7em rgba(0,0,0,0.3); */
     border-radius: inherit;
 }
 .post-card .post-card-image:after {
@@ -125,7 +156,7 @@
     top: 0;
     left: 0;
     position: absolute;
-    box-shadow: 0px 1em 1em rgba(0,0,0,0.3);
+    box-shadow: 0.5em 0.5em 0em rgba(0,0,0,.1), -0.5em -0.5em 0em rgba(0,0,0,.1);
     border-radius: inherit;
 }
 
