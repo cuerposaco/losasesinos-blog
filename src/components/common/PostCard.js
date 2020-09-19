@@ -27,7 +27,7 @@ const PostCard = ({ post }) => {
         {post.excerpt}
       </section>
       <footer className="post-card-footer">
-        {post.tags && <div className="post-card-tags"><Tags post={post} visibility="public" autolink={true} permalink="/tag/:slug" /></div>}
+        {/* {post.tags && <div className="post-card-tags"><Tags post={post} visibility="public" autolink={true} permalink="/tag/:slug" /></div>} */}
         {/* <div className="post-card-footer-left">
           <div className="post-card-avatar">
             {post.primary_author.profile_image ?

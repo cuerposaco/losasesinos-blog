@@ -55,7 +55,7 @@ export const pageQuery = graphql`
           authors: {elemMatch: {slug: {ne: "data-schema"}}},
           primary_tag: {slug: {eq: "en-portada"}}
         },
-        sort: { order: DESC, fields: [published_at] },
+        sort: { order: DESC, fields: [published_at, updated_at] },
         limit: $limit,
         skip: $skip
     ) {

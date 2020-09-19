@@ -1,0 +1,222 @@
+
+.site-nav .site-title {
+    font-size: 2em;
+    font-family: "Roboto Slab";
+    padding: 0.3em;
+}
+
+.site-nav .site-title a {
+    color: inherit;
+}
+
+.site-nav .site-nav-left {
+    margin: 0;
+}
+
+.site-head {
+  padding-top: 40px;
+}
+
+.site-head .site-mast {
+    display: none;
+}
+.site-head .site-nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: 1;
+    padding: 1em 4vw;
+}
+
+nav.site-nav {
+    transition: all 700ms;
+    background-color: white;
+    color: black;
+}
+nav.site-nav.scroll-out {
+    background-color: black;
+    color: white;
+}
+
+.site-nav-item.invert {
+  filter: invert(1);
+}
+nav.site-nav .site-nav-item {
+  color: inherit;
+}
+
+nav.site-nav .site-nav-item .site-nav-icon {
+  height: 1.4em;
+}
+.site-head .site-banner {
+    margin: 0 auto;
+    padding: 0vw 0;
+    text-align: center;
+    background-image: url(https://raw.githubusercontent.com/cuerposaco/losasesinosdelcomic-assets/master/logo_horizontal.png);
+    height: 21vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 5em;
+}
+
+.site-head .site-banner .site-banner-title {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 0em;
+  opacity: 0;
+}
+
+.site-head .site-banner .site-banner-desc {
+  font-family: 'Permanent Marker', serif;
+  font-weight: 400;
+  display: block;
+  opacity: 1;
+  font-size: 2em
+}
+
+.site-foot {
+  background: #000000;
+}
+
+.site-foot-nav {
+  flex-direction: column;
+  text-align: center;
+}
+.site-foot-nav .site-foot-nav-right {
+  /* display: none; */
+}
+
+@media (max-width: 680px) {
+  .site-head .site-banner {
+    height: 30vw;
+    /* max-width: 75%; */
+  }
+}
+
+/* POST CARDS */
+
+.site-main {
+  padding: initial;
+}
+
+.site-main .post-feed {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 680px) {
+  .site-main .post-feed {
+      grid-template-columns: 1fr;
+  }
+  .post-card {
+    min-width: calc(92vw);
+  }
+}
+
+.post-card {
+  padding: 2em 0;
+}
+.post-card-info {
+    font-size: 0.9em;
+    color: black;
+    font-weight: 600;
+    padding: 0.5em 0;
+    border-top: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+    margin-bottom: 1.5em;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.post-card-info span {
+  padding-right: 0.3em;
+}
+.post-card-info > span:nth-child(even) {
+  opacity: 0;
+}
+.post-card-info > span:nth-child(odd) {}
+
+.post-card .post-card-title {
+  /* font-family: 'Neucha', serif; */
+  font-size: 3em;
+  font-weight: 100;
+  display: block;
+  margin: 0;
+  margin-top: 0.3em;
+  padding: 0.33em 0;
+  text-align: center;
+}
+
+.post-card .post-card-image {
+    height: 300px;
+    position: relative;
+    margin: 0 auto;
+    outline: 4px solid black;
+    background-color: #000;
+}
+.post-card .post-card-image:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    box-shadow: inset 0px 0px 1em rgba(0,0,0,0.3), inset 0px 0px 1.3em rgba(0,0,0,0.3), inset 0px 0px 1.5em rgba(0,0,0,0.3), inset 0px 0px 1.7em rgba(0,0,0,0.3);
+    border-radius: inherit;
+}
+.post-card .post-card-image:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    box-shadow: 0px 1em 1em rgba(0,0,0,0.3);
+    border-radius: inherit;
+}
+
+.post-card-excerpt {
+  font-family: 'Roboto Slab', serif;
+    font-size: 0.9em !important;
+    line-height: 1.5em !important;
+    margin: 0 auto;
+    max-width: 81%;
+    text-align: center;
+}
+
+.post-card .post-card-tags {
+  margin: 0 auto;
+  font-size: 1.3rem;
+  line-height: 1.15em;
+  color: var(--color-secondary);
+  border-top: 1px solid #f2f2f2;
+  justify-content: center;
+  display: flex;
+  max-width: 80%;
+  width: 100%;
+  padding: 1.2em;
+  font-family: 'Roboto Slab', serif;
+}
+.post-card-tags > span:nth-child(odd) {
+  display: flex;
+  background-color: black;
+  padding: 0.4em 0.4em;
+  border-radius: 0.4em;
+  color: white;
+  text-transform: uppercase;
+}
+.post-card-tags > span:nth-child(even) {
+  opacity: 0;
+  padding: 0 0.3em;
+}
+
+.post-card-tags a {
+  text-decoration: none;
+  color:inherit;
+}
+.post-card-tags > span:nth-child(odd):hover {
+  color: #333;
+  background-color: #c3c3c3;
+}

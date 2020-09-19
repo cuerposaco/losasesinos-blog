@@ -1,0 +1,52 @@
+.content,
+.content-body {
+  font-family: "Roboto Slab";
+}
+
+@media (max-width: 500px) {
+  .content {
+    font-size: 1.6rem;
+  }
+}
+
+
+.post-feature-image {
+  margin-bottom: 2em;
+  border-bottom: 4px solid black;
+}
+.post-feature-image img {
+  margin: initial;
+}
+
+.publish-date {
+  font-size: 0.8em;
+  padding-left: 1em;
+  border-left: 2px solid #f2f2f2;
+}
+
+
+.content-body p > * {
+  white-space: break-spaces;
+  line-break: anywhere;
+}
+
+/**
+*  #class
+* .kg-card
+* .kg-image-card
+* .kg-card-hascaption
+*/
+.content-body figure {
+  /* margin: 0 auto; */
+  width: 100%;
+  text-align: center;
+  padding: 0.5em;
+  background: #f2f2f2;
+}
+
+.content-body figcaption {
+  font-size: .45em;
+  font-weight: 400;
+  line-height: 1.3em;
+  padding-top: 0.5em;
+}
