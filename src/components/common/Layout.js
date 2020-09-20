@@ -115,7 +115,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
               Cookies.set('gdpr_viewed', false);
             }}
           >
-            <span style={{ fontFamily: "'Neucha', serif", fontSize: "2em", lineHeight: "1.2em", display: "block", marginBottom: "1em" }}>Queremos saber lo que te gusta y ..., si, usamos cookies para ello; así que, tenemos que preguntarte si aceptas que lo hagamos.</span>
+            <span style={{ fontFamily: "'Neucha', serif", fontSize: "2em", lineHeight: "1.2em", display: "block", marginBottom: "1em" }}>Queremos saber lo que te gusta y ..., sí, usamos cookies para ello; así que, tenemos que preguntarte si aceptas que lo hagamos.</span>
             <span style={{ fontFamily: "'Roboto', serif", fontSize: "0.9em", lineHeight: "1.4em", display: "block" }}>Aceptando nos ayudas a mejorar, pero si no quieres, podrás seguir difrutando de los contenidos de la misma manera pero sin enviar información sobre tu visita.</span>
           </CookieConsent>
           <footer className="site-foot">
